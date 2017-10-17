@@ -31,13 +31,7 @@ namespace LoggingKata
 
             //You're going to need to parse your string as a Decimal
             //which is similar to parse a string as an int
-
-            //You'll need to create a TacoBell class
-            //that conforms to ITrackable
-
-            //Then, you'll need an instance of the TacoBell class
-            //With the name and point set correctly
-
+            
             //Then, return the instance of your TacoBell class
             //Since it conforms to ITrackable
 
