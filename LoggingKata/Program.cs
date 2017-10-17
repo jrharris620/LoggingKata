@@ -21,9 +21,21 @@ namespace LoggingKata
             var csvPath = Environment.CurrentDirectory + "\\Taco_Bell-US-AL-Alabama.csv";
             Logger.Debug("Created csvPath variable: " + csvPath);
 
-            var lines = File.ReadAllLines(csvPath);
+            var rows = File.ReadAllLines(csvPath);
+
+            if (rows.Length == 0)
+            {
+                Logger.Error("Our csv file is missing or empty of content");
+            }
+            else if (rows.Length == 1)
+            {
+                Logger.Warn("Can't compare. There is only one element");
+            }
+            
             var parser = new TacoParser();
-            var locations = lines.Select(line => parser.Parse(line));
+
+
+            var locations = rows.Select(row => parser.Parse(row));
 
             //TODO:  Find the two TacoBells in Alabama that are the furthurest from one another.
             //HINT:  You'll need two nested forloops
