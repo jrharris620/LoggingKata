@@ -36,7 +36,18 @@ namespace LoggingKata
             //Since it conforms to ITrackable
 
             //DO not fail if one record parsing fails, return null
-            return null; //TODO Implement
+
+            var point = new Point()
+            {
+                Latitude = 0,
+                Longitude = 0
+            };
+
+            var tacoBell = new TacoBell();
+            tacoBell.Name = "";
+            tacoBell.Location = point;
+
+            return tacoBell;
         }
     }
 }

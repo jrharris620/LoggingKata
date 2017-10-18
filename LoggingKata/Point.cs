@@ -2,7 +2,7 @@
 {
     public struct Point
     {
-        decimal Longitude { get; set; }
-        decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
     }
 }
