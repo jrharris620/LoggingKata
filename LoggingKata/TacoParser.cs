@@ -34,24 +34,16 @@ namespace LoggingKata
                 return null;
             }
 
-            var lonStr = cells[0];
-            var latStr = cells[1];
-            var name = cells[2];
-
             double lon = 0;
             double lat = 0;
-
-            Logger.Info("Parsed lon and lat strings into doubles");
-            double.TryParse(lonStr, out lon);
-            double.TryParse(latStr, out lat);
-
+            
             try
             {
                 Logger.Debug("Attempt Parsing Longitude");
-                lon = double.Parse(lonStr);
+                lon = double.Parse(cells[0]);
 
                 Logger.Debug("Attempt Parsing Latitude");
-                lat = double.Parse(latStr);
+                lat = double.Parse(cells[1]);
             }
             catch (Exception e)
             {
@@ -61,15 +53,15 @@ namespace LoggingKata
                 return null;
             }
 
-            var point = new Point()
+            var tacoBell = new TacoBell
             {
-                Latitude = 0,
-                Longitude = 0
+                Name = cells[2],
+                Location = new Point
+                {
+                    Latitude = 0,
+                    Longitude = 0
+                }
             };
-
-            var tacoBell = new TacoBell();
-            tacoBell.Name = "";
-            tacoBell.Location = point;
 
             return tacoBell;
         }
