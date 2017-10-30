@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using log4net;
 using System.IO;
+using Geolocation;
 
 namespace LoggingKata
 {
@@ -33,13 +34,17 @@ namespace LoggingKata
             }
             
             var parser = new TacoParser();
-
-
+            
             var locations = rows.Select(row => parser.Parse(row));
+
+            ITrackable a = null;
+            ITrackable b = null;
+            double distance = 0;
 
             //TODO:  Find the two TacoBells in Alabama that are the furthurest from one another.
             //HINT:  You'll need two nested forloops
 
+            Console.ReadLine();
         }
     }
 }
