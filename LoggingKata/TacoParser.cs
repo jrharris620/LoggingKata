@@ -45,6 +45,22 @@ namespace LoggingKata
             double.TryParse(lonStr, out lon);
             double.TryParse(latStr, out lat);
 
+            try
+            {
+                Logger.Debug("Attempt Parsing Longitude");
+                lon = double.Parse(lonStr);
+
+                Logger.Debug("Attempt Parsing Latitude");
+                lat = double.Parse(latStr);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Failed to parse lat and lon");
+                Console.WriteLine(e);
+                
+                return null;
+            }
+
             var point = new Point()
             {
                 Latitude = 0,
