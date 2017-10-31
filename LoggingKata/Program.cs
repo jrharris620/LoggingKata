@@ -36,7 +36,10 @@ namespace LoggingKata
             var parser = new TacoParser();
             Logger.Debug("Initialized our Parser");
 
-            var locations = rows.Select(row => parser.Parse(row));
+            var locations = rows.Select(row => parser.Parse(row))
+                .OrderBy(loc => loc.Location.Longitude)
+                .ThenBy(loc => loc.Location.Latitude)
+                .ToArray();
 
             ITrackable a = null;
             ITrackable b = null;
@@ -48,8 +51,6 @@ namespace LoggingKata
 
             foreach (var locA in locations)
             {
-                Logger.Debug("Checking the origin locations");
-
                 var origin = new Coordinate
                 {
                     Latitude = locA.Location.Latitude,
@@ -58,15 +59,11 @@ namespace LoggingKata
 
                 foreach (var locB in locations)
                 {
-                    Logger.Debug("Checking the origin to the destination locations");
-
                     var dest = new Coordinate
                     {
                         Latitude = locB.Location.Latitude,
                         Longitude = locB.Location.Longitude
                     };
-
-                    Logger.Debug("Getting distance in miles");
 
                     var nDist = GeoCalculator.GetDistance(origin, dest);
 
@@ -86,7 +83,6 @@ namespace LoggingKata
                 Console.ReadLine();
                 return;
             }
-
 
             var logMessage =
                 $"The two Taco Bells that are furtherst apart are: {a.Name} and {b.Name}. These two locations are: {distance} miles apart.";
