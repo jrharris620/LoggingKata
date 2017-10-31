@@ -15,12 +15,6 @@ namespace LoggingKata
 
         }
 
-        public enum Location
-        {
-            Longitude,
-            Latitude
-        }
-
         private static readonly ILog Logger =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -63,6 +57,7 @@ namespace LoggingKata
                 }
             };
 
+            Logger.Info("Created new class of TacoBell");
             return tacoBell;
         }
     }
