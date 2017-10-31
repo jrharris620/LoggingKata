@@ -45,8 +45,6 @@ namespace LoggingKata
             ITrackable b = null;
             double distance = 0;
 
-            //TODO:  Find the two TacoBells in Alabama that are the furthurest from one another.
-
             Logger.Info("Comparing all locations in CSV file");
 
             foreach (var locA in locations)
