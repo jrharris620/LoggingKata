@@ -52,8 +52,8 @@ namespace LoggingKata
                 Name = cells[2],
                 Location = new Point
                 {
-                    Latitude = 0,
-                    Longitude = 0
+                    Latitude = lat,
+                    Longitude = lon
                 }
             };
 

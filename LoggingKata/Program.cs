@@ -34,6 +34,7 @@ namespace LoggingKata
             }
             
             var parser = new TacoParser();
+            Logger.Debug("Initialized our Parser");
             
             var locations = rows.Select(row => parser.Parse(row));
 
