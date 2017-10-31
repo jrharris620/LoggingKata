@@ -51,28 +51,18 @@ namespace LoggingKata
 
             foreach (var locA in locations)
             {
-                var origin = new Coordinate
-                {
-                    Latitude = locA.Location.Latitude,
-                    Longitude = locA.Location.Longitude
-                };
+                var origin = new Coordinate { Latitude = locA.Location.Latitude, Longitude = locA.Location.Longitude };
 
                 foreach (var locB in locations)
                 {
-                    var dest = new Coordinate
-                    {
-                        Latitude = locB.Location.Latitude,
-                        Longitude = locB.Location.Longitude
-                    };
+                    var dest = new Coordinate { Latitude = locB.Location.Latitude, Longitude = locB.Location.Longitude };
 
                     var nDist = GeoCalculator.GetDistance(origin, dest);
 
-                    if (nDist > distance)
-                    {
-                        a = locA;
-                        b = locB;
-                        distance = nDist;
-                    }
+                    if (!(nDist > distance)) { continue; }
+                    a = locA;
+                    b = locB; 
+                    distance = nDist;
                 }
             }
 
